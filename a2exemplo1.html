@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>Exemplo 1:Manipulando o DOM</h1>
+    <p>Exemplo 1</p>
+    <p> <span contenteditable="true">3</span> + <span contenteditable="true">2</span> e <span>5</span></p>
+      <button>calcular</button>
+    <script>
+      var h1= document.querySelector("h1");
+      h1.textContent="Exemplo 01:Maniplando o DOM";
+      var botao=document.querySelector("button");
+      botao.addEventListener("click", calcular);
+      function calcular(){
+        var spans=document.querySelectorAll("span");
+        var a=Number(spans[0].textContent);
+        var b=Number(spans[1].textContent);
+        spans[2].textContent=a+b;
+      }
+    </script>
+  </body>
+</html>

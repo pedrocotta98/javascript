@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <style>
+  html{
+    font-family: sans-serif;
+  }
+  th,td{
+    border: 1px solid black;
+    padding: 0.2em;
+  }
+
+  </style>
+  <body>
+    <h1>exemplo 03</h1>
+    <div><label>Nome: <input /></label></div>
+    <div><label>Nota: <input /></label></div>
+    <button>Adicionar</button>
+
+    <table>
+      <thead>
+        <tr>
+        <th>Nome</th>
+        <th>Nota</th>
+      </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Fulano</td>
+          <td>70</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <th>media</th>
+          <th>70.00</th>
+        </tr>
+      </tfoot>
+    </table>
+
+
+
+    <script>
+    var inputs= document.querySelectorAll("input");
+    var entradaNome=inputs[0];
+    var entradaNota=inputs[1];
+    var botao=document.querySelector("button");
+    //saida
+    var tbody=document.querySelector("tbody");
+    botao.addEventListener("click",adicionar);
+    //operacoes sobre dados
+    function adicionar() {
+      var novoTr= document.createElement("tr");
+      var tdNome= document.createElement("td");
+      var tdNota= document.createElement("td");
+      tdNome.textContent=entradaNome.value;
+      entradaNome.value="";
+      entradaNome.focus();
+      tdNota.textContent=entradaNota.value;
+      entradaNota.value="";
+      novoTr.appendChild(tdNome)
+      novoTr.appendChild(tdNota)
+      tbody.appendChild(novoTr)
+
+
+
+    }
+
+
+
+    </script>
+
+
+
+
+
+
+  </body>
+</html>
