@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Exemplo 5</title>
+  </head>
+  <body>
+    <form name="soma">
+      <div>
+        <label for="a">Primeiro numero</label>
+        <input type="text" name="a" value="" required/>
+      </div>
+      <div>
+        <label for="b">Segundo numero</label>
+        <input type="text" name="b" value="" required/>
+      </div>
+      <div>
+        <input type="submit" name="somar" value="Somar"/>
+        <br>
+        <label for="c">Resultado</label>
+      </div>
+
+      <input type="text" name="c" value="" readonly/>
+      <input type="reset"/>
+
+    </form>
+
+    <script>
+
+    document.soma.addEventListener("submit",somar);
+
+
+
+      function somar(e)
+      {
+        e.preventDefault();
+        document.soma.c.value=Number(document.soma.a.value)+
+        Number(document.soma.b.value);
+
+      }
+    </script>
+  </body>
+</html>

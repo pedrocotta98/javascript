@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>Exemplo 6</h1>
+
+    <form name="soma">
+      <label for="n">Numero</label>
+      <input type="number" name="n">
+      <input type="submit" name="somar" value="Somar">
+      <input type="reset" name="redefinir">
+
+
+
+    </form>
+    <ul>
+
+    </ul>
+    <p>Media</p> <span>0</span>
+    <script>
+
+    document.soma.addEventListener('submit',adicionar);
+    var somador=
+    {
+        numeros:[],adicionar:function(n)
+        {
+          this.numeros.push(n);
+        },
+        media: function()
+        {
+          var soma=0;
+          var qtd=this.numeros.length;
+          for (var i = 0; i < this.numeros.length; i++)
+          {
+            soma+=this.numeros[i];
+            }
+          return soma/qtd;
+        }
+    };
+    var lista=document.querySelector('ul');
+    var media=document.querySelector('span');
+    
+    function adicionar(e)
+    {
+      e.preventDefault();
+      var novoLi=document.createElement('li');
+      novoLi.textContent=document.soma.n.value;
+      lista.appendChild(novoLi);
+      somador.adicionar(Number(document.soma.n.value));
+      media.textContent=somador.media().toFixed(2);
+      document.soma.n.value = "";
+    }
+
+    </script>
+  </body>
+</html>

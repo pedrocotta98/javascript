@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Exemplo 7</title>
+    <style media="screen">
+    body>div
+    {
+      width:400px;
+      height:300px;
+      background-color: darkorange;
+    }
+    div>div
+    {
+      width: 400px;
+      height:20px;
+      border:1px solid black;
+      line-height:20px;
+      text-align: center;
+      top: 20px;
+      left: 40px;
+      position: absolute;
+
+    }
+    </style>
+  </head>
+  <body>
+
+    <p>Exemplo 7</p>
+    <div>A</div>
+
+    <script>
+    var mundo=
+    {
+      linha:1,
+      coluna:2,
+    }
+    var divA=document.querySelector("div>div");
+    window.addEventListener('keydown',teclaPressionada);
+
+    function teclaPressionada(e)
+    {
+      console.log("Tecla: "+ e.keyCode);
+      switch(e.keyCode)
+      {
+        case 37:
+        mundo.coluna--;
+        break;
+        case 38:
+        mundo.coluna++;
+        break;
+      }
+    }
+    function atualizaMundo()
+    {
+      divA.style.left=mundo.coluna*20+"px";
+      divA.style.top=mundo.coluna*20+"px";
+    }
+    </script>
+  </body>
+</html>
